@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block content %}
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+
+    <link rel="shortcut icon" href="favicon.ico">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="{{url_for('static', filename= '/css/bootstrapLogin.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename= '/css/animateLogin.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename= '/css/styleLogin.css')}}">
+
+
+    <script src="{{url_for('static', filename= '/js/modernizr-2.6.2Login.min.js')}}"></script>
+        <div id="fh5co-main">
+            <aside id="fh5co-hero" class="js-fullheight">
+                <div class="flexslider js-fullheight">
+                    <ul class="slides">
+                    <li style="background-image: url({{url_for('static', filename= 'images/bg_2.jpg')}})">
+                        <div class="overlay"></div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
+                                    <div class="slider-text-inner">
+                                        <div id = "post">
+                                            <form action = '' method="POST" enctype=multipart/form-data>
+                                                <div class="form-group">
+                                                    <input type="text" name="text" class="form-control" id="txt" placeholder="Conte-nos sobre o que é esse post" autocomplete="off"> 
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="file" name="file" class="form-control" autocomplete="off" multiple/>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input type="submit" value="Enviar" class="btn btn-primary">
+                                                </div>
+                                            </form>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+            </aside>
+        </div> 
+        <div id="fh5co-main">
+            <aside id="fh5co-hero" class="js-fullheight">
+                <div class="flexslider js-fullheight">
+                    <ul class="slides">
+                    <li style="background-image: url({{url_for('static', filename= 'images/bg_2.jpg')}})">
+                        <div class="overlay"></div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
+                                    <div class="slider-text-inner">
+                                        <div id = "post">
+                                            <div>
+                                                {% if redirect %}
+                                                    {% if name != None %}
+                                                        {% if ".mp4" in name %}
+                                                            <div>
+                                                                <h1>{{text}}</h1>
+                                                                <video src="{{url_for('static', filename = 'posts/' + name) }}" height="200px" width="200px" controls> 
+                                                            </div> 
+                                                        {% else %}
+                                                        <div>
+                                                            <h1>{{text}}</h1>
+                                                            <img src="{{url_for('static', filename = 'posts/' + name)}}" height="200px" width="200px">
+                                                        </div>
+                                                        {% endif %}
+                                                    {% else %}
+                                                        <div>
+                                                            <h1>{{text}}</h1>
+                                                        </div>    
+                                                    {% endif %}
+                                                {% endif %}
+                                            </div>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>   
+        
+    <!-- jQuery -->
+    <script src="{{url_for('static', filename= '/js/jqueryLogin.min.js')}}"></script>
+    <!-- Bootstrap -->
+    <script src="{{url_for('static', filename= '/js/bootstrapLogin.min.js')}}"></script>
+    <!-- Placeholder -->
+    <script src="{{url_for('static', filename= '/js/jquery.placeholder.min.js')}}"></script>
+    <!-- Waypoints -->
+    <script src="{{url_for('static', filename= '/js/jquery.waypointsLogin.min.js')}}"></script>
+    <!-- Main JS -->
+    <script src="{{url_for('static', filename= '/js/mainLogin.js')}}"></script>
+{% endblock %}
+</html>
